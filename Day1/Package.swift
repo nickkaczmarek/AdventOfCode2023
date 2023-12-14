@@ -4,23 +4,24 @@ import PackageDescription
 
 let package = Package(
     name: "Day1",
+    platforms: [.macOS(.v13)],
     targets: [
-        .executableTarget(
+        .target(
             name: "Day1",
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals")
+            ]
+        ),
+        .executableTarget(
+            name: "Day1CLI",
+            dependencies: ["Day1"],
             resources: [
                 .process("Day1.txt")
             ]
         ),
+        .testTarget(
+            name: "Day1Tests",
+            dependencies: ["Day1"]
+        )
     ]
 )
-
-for target in package.targets {
-    target.swiftSettings = target.swiftSettings ?? []
-    target.swiftSettings?.append(
-        .unsafeFlags([
-            "-Xfrontend", "-warn-concurrency",
-            "-Xfrontend", "-enable-actor-data-race-checks",
-            "-enable-bare-slash-regex",
-        ])
-    )
-}
