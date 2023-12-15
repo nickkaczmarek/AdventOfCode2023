@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MyPlaground.playground">
+   </FileRef>
+   <FileRef
       location = "group:Day1">
    </FileRef>
    <FileRef
