@@ -14,7 +14,10 @@ let package = Package(
         ),
         .executableTarget(
             name: "Day2CLI",
-            dependencies: ["Day2"]
+            dependencies: ["Day2"],
+            resources: [
+                .process("Day2.txt")
+            ]
         ),
         .testTarget(
             name: "Day2Tests",
