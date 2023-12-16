@@ -21,7 +21,10 @@ let package = Package(
         ),
         .testTarget(
             name: "Day2Tests",
-            dependencies: ["Day2"]
+            dependencies: ["Day2"],
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals")
+            ]
         )
     ]
 )

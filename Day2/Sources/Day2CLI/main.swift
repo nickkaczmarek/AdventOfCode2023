@@ -7,6 +7,7 @@ do {
     let input: String = try String(contentsOfFile: filePath)
 
     print(Part1.calculate(from: input))
+    print(Part2.calculate(from: input))
 } catch {
     print(error)
 }
